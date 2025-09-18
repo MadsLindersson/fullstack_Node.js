@@ -16,10 +16,13 @@ app.get("/greekGods/:id", (req, res) => {
         res.status(404).send({ errorMessage: `Greek god not found by id ${req.params.id}` });
     } else {
         res.send({ data: greekGodToSend });
-    }
+    };
 })
 
 app.post("/greekGods", (req, res) => {
+    if (!req.body)  {
+        return res.status(400).send({ errorMessage: "Requires a JSON body" });
+    };
     res.send(createGreekGod(req.body));
     
 });
@@ -32,5 +35,14 @@ app.delete("/greekGods/:id", (req, res) => {
     res.send({ data: deleteGreekGod(Number(req.params.id)) })
 });
 
+// app.listen can be given a callback function in the second argument
+
 //Altid i bunden
-app.listen(8080);
+const PORT = 8080;
+app.listen(PORT, (error) => {
+    if (error) {
+        console.log("Something went wrong", error);
+        return;
+    }
+    console.log("Server is running on port", PORT);
+});

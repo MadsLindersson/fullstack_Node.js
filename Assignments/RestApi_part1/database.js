@@ -1,5 +1,7 @@
 "use strict"
 
+let nextId = 13;
+
 const greekGods = [
     { id: 1, name: "Zeus", role: "Sky and thunder god" },
     { id: 2, name: "Poseidon", role: "God of the sea" },
@@ -21,12 +23,7 @@ function findGreekGodById (id, listOfGreekGods)    {
 }
 
 function createGreekGod (greekGod)  {
-    if (greekGod.id) {
-        return {errorMessage: "Do not enter id"};
-    }
-
-    //TODO skal kunne lave id ud fra næste ledige og ikke bare plus 1, giver problemer ved delete
-    greekGod.id = greekGods[greekGods.length - 1].id + 1;
+    greekGod.id = nextId++;
     greekGods.push(greekGod);
 
     return greekGod;
