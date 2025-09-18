@@ -63,15 +63,17 @@
 
 </head>
 <body>
-    <h1 class="h1-title">Guess how many seconds has passed since midnight</h1>
+    <h1 class="h1-title">Guess how many minutes has passed since midnight</h1>
+    <h2 id="h2-showing-time"></h2>
     <div class="container">
-        <label class="label-input-description" for="guess">Enter the seconds:</label>
+        <label class="label-input-description" for="guess">Enter the minutes:</label>
         <input class="input-guess-time" type="text" id="input-guess-time">
         <button class="submit-button" id="submit-button">Submit</button>
         <div class="result" id="result"></div>
     </div>
 
 <script>
+    //Post the guess to the API
     document.getElementById("submit-button").addEventListener("click", () => {
         const guessValue = document.getElementById("input-guess-time").value;
 
@@ -88,6 +90,26 @@
         })
         .catch(error => {
             document.getElementById("result").textContent = "Error:", error
+        })
+    });
+
+    //Show current time and send minutes passed since midnight to API
+    document.addEventListener("DOMContentLoaded", () => {
+        const now = new Date();
+        const h2ShowingTime = document.getElementById("h2-showing-time");
+
+        h2ShowingTime.textContent = `The time is: ${now.getHours()} : ${now.getMinutes()}`;
+
+            fetch("/MinutesSinceMidnight", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ minutesSinceMidnight : (now.getHours() * 60) + (now.getMinutes()) })
+        })
+        .then(response => response.json())
+        .catch(error => {
+            console.log(error);
         })
     });
 </script>

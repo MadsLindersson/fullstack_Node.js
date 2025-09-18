@@ -6,19 +6,21 @@ const service = require("./service")
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/index.html");
-    //res.send({ data: service.minutesSinceMidnight()})
 });
 
 app.post("/guess", (req, res) => {
-    console.log(service.minutesSinceMidnight());
     res.send({ data: service.guessVsActual(Number(req.body.guess)) });
     
 });
 
-module.exports = app;
+app.post("/MinutesSinceMidnight", (req, res) => {
+    service.setMinutesSinceMidnight(Number(req.body.minutesSinceMidnight));
+});
 
-//const PORT = 8080;
-//app.listen(PORT, () => {
-//    console.log(`Server on port ${PORT} running`);
-//});
+//module.exports = app;
+
+const PORT = 8080;
+app.listen(PORT, () => {
+    console.log(`Server on port ${PORT} running`);
+});
 
