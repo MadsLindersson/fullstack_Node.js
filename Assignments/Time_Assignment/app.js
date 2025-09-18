@@ -15,9 +15,10 @@ app.post("/guess", (req, res) => {
     
 });
 
+module.exports = app;
+
 const PORT = 8080;
 app.listen(PORT, () => {
     console.log(`Server on port ${PORT} running`);
 });
 
-module.exports = app;
