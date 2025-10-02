@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+}
+
+.centered-title-container {
+  text-align: center; /* centers inline/inline-block children */
+  margin-top: 100px;  /* space below navbar */
+}
+
+.centered-title {
+  font-size: 4rem;
+  font-weight: bold;
+
+  /* Gradient text */
+  background: linear-gradient(90deg, white, #7c3bed, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Bop animation */
+  display: inline-block;
+  animation: bop 1s ease-in-out infinite alternate;
+}
+
+/* Bop animation */
+@keyframes bop {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}

@@ -7,7 +7,7 @@ const app = express();
 app.use(express.static('public'));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("public/index/index.html"));
+    res.sendFile(path.resolve("public/pages/index/index.html"));
 }); 
 
 const PORT = 8080;

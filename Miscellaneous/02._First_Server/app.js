@@ -67,5 +67,12 @@ app.post("/fashionBrands", (req, res) => {
     
 });
 
+app.get("/proxy", (req, res) => {
+    //Make a request to google and serve it to the client
+    fetch("https://www.google.com")
+    .then((response) =>  response.text())
+    .then((result) => res.send(result)); 
+}); 
+
         // http developer port
 app.listen(8080);

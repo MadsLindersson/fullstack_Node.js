@@ -5,17 +5,18 @@ import path from 'path';
 
 app.use(expres.static("public"));
 
+
 //Pages ---------------------------------------------------------------------------------
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve('public/frontend/index.html'));
+    res.sendFile(path.resolve('public/pages/frontend/index.html'));
 });
 
 app.get("/matches", (req, res) => {
-    res.sendFile(path.resolve("public/matches/matches.html"));
+    res.sendFile(path.resolve("public/pages/matches/matches.html"));
 });
 
 //API -----------------------------------------------------------------------------------
-const PORT = 8080;
+const PORT = Number(process.env.PORT) || 8080;
 app.listen(PORT, () => {
     console.log('Server is runnning on ', PORT);
 });

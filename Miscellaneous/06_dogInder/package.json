@@ -4,7 +4,8 @@
   "description": "A tinder for indian dogs",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env PORT=9090 nodemon.cmd app.js",
+    "prod": "node app.js"
   },
   "keywords": [
     "Tinder",
@@ -18,5 +19,8 @@
   "type": "module",
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0"
   }
 }

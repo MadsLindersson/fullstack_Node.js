@@ -1,4 +1,5 @@
 {
+    "type": "module",
     "dependencies": {
         "express": "5.1.0"
     },
@@ -15,6 +16,6 @@
     },
     "scripts": {
         "dev": "nodemon api/app.js",
-        "build:css": "tailwindcss -i ./public/tailwind.css -o ./public/css/output.css --watch"
+        "build:css": "tailwindcss -i ./public/css/tailwind.css -o ./public/css/output.css --watch"
     }
 }
