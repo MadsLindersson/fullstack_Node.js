@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/pages/index/index.css">
     <link rel="stylesheet" href="/components/navbar/navbar.css">
+    <link rel="stylesheet" href="/components/noteLinks/noteLinks.css">
     <link rel="icon" href="/images/ClassNotesLogo.png">
     <title>Index</title>
 </head>
@@ -12,12 +13,14 @@
 
     <nav id="navbar" class="navbar"></nav>
 
-    <div class="centered-title-container">
-        <h1 class="centered-title">Classroom Notes</h1>
-    </div>
+    <main>
+        <div class="centered-title-container">
+            <h1 class="centered-title">Classroom Notes</h1>
+        </div>
 
-    <div></div>
+        <section id="note-card-container" class="note-card-container"></section>
+    </main>
 
-    <script src="/pages/index/index.js"></script>
+    <script type="module" src="/pages/index/index.js"></script>
 </body>
 </html>

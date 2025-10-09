@@ -1,0 +1,7 @@
+[
+  { "id": 1, "date": "04/09-2025", "topic": "Basic node & Javascript" },
+  { "id": 2, "date": "11/09-2025", "topic": "Loops & stream" },
+  { "id": 3, "date": "18/09-2025", "topic": "Date objekt & første HTML server" },
+  { "id": 4, "date": "25/09-2025", "topic": "Linket JS og CSS til HTML & type: module" },
+  { "id": 5, "date": "02/10-2025", "topic": "Scripts i Package.json & miljøvariabler" }
+]

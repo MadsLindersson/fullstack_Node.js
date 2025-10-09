@@ -16,6 +16,12 @@ app.get("/matches", (req, res) => {
 });
 
 //API -----------------------------------------------------------------------------------
+import { getMatches } from './util/matchesUtil.js';
+
+app.get("/api/matches", (req, res) => {
+    res.send();
+});
+
 const PORT = Number(process.env.PORT) || 8080;
 app.listen(PORT, () => {
     console.log('Server is runnning on ', PORT);
