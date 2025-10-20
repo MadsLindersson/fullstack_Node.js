@@ -27,11 +27,11 @@ app.get("/notes/:fileName", async (req, res) => {
     }
 });
 
-export default function handler(req, res) {
+/* export default function handler(req, res) {
   res.status(200).send("Hello from Vercel!");
-}
+} */
 
-/* const PORT = 8080;
+const PORT = 8080;
 app.listen(PORT, () => {
     console.log("The server is running on port:", PORT);    
-}); */
+});
