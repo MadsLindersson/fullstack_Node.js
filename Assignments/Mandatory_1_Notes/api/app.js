@@ -19,6 +19,7 @@ const notePage = fs.readFileSync(
 );
 
 const app = express();
+
 app.use(express.static('public'));
 
 app.get("/", (req, res) => {
@@ -39,11 +40,10 @@ app.get("/notes/:fileName", async (req, res) => {
     }
 });
 
-/* export default function handler(req, res) {
-  res.status(200).send("Hello from Vercel!");
-} */
+export default app;
 
-const PORT = 8080;
+
+/* const PORT = 8080;
 app.listen(PORT, () => {
     console.log("The server is running on port:", PORT);    
-});
+}); */
