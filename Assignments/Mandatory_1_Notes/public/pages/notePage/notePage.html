@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pages/notePage/notePage.css">
+    <link rel="stylesheet" href="/components/navbar/navbar.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <link rel="icon" href="/images/ClassNotesLogo.png">
+    <title>Index</title>
+</head>
+<body>
+
+    <nav id="navbar" class="navbar"></nav>
+
+    <main class="note-container">
+        $$MARKDOWN_FILE$$
+    </main>
+
+    <script type="module" src="/pages/notePage/notePage.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

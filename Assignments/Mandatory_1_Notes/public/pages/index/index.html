@@ -18,9 +18,62 @@
             <h1 class="centered-title">Classroom Notes</h1>
         </div>
 
-        <section id="note-card-container" class="note-card-container"></section>
+        <section id="note-card-container" class="note-card-container">
+            <a href="/notes/01_introduction" class="note-link" id="01_introduction">
+                <ul>
+                    <li>09-01-2025</li>
+                    <li>Introduction</li>
+                </ul>
+            </a>
+            <a href="/notes/02_first_server" class="note-link" id="02_first_server">
+                <ul>
+                    <li>11/09-2025</li>
+                    <li>First server</li>
+                </ul>
+            </a>
+            <a href="/notes/03_loop_methods" class="note-link" id="03_loop_methods">
+                <ul>
+                    <li>18/09-2025</li>
+                    <li>Loop methods</li>
+                </ul>
+            </a>
+            <a href="/notes/04_html_time" class="note-link" id="04_html_time">
+                <ul>
+                    <li>25/09-2025</li>
+                    <li>HTML / Time</li>
+                </ul>
+            </a>
+            <a href="/notes/05_export_import" class="note-link" id="05_export_import">
+                <ul>
+                    <li>02/10-2025</li>
+                    <li>Export / Import</li>
+                </ul>
+            </a>
+            <a href="/notes/06_clientVsServer_Env_variables" class="note-link" id="06_clientVsServer_Env_variables">
+                <ul>
+                    <li>02/10-2025</li>
+                    <li>Client vs server & miljøvariabler</li>
+                </ul>
+            </a>
+            <a href="/notes/07_server-side_rendering_ssr_routers" class="note-link" id="07_server-side_rendering_ssr_routers">
+                <ul>
+                    <li>02/10-2025</li>
+                    <li>Server-side rendering & SSR / routers</li>
+                </ul>
+            </a>
+        </section>
+
+        <div id="noteModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" class="close">&times;</span>
+                <div id="noteBody">
+                    $$MARKDOWN_FILE$$
+                </div>
+            </div>
+        </div>
     </main>
 
     <script type="module" src="/pages/index/index.js"></script>
+    <script type="module" src="/components/noteLinks/noteLinks.js"></script>
 </body>
 </html>

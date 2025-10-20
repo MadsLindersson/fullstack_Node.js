@@ -6,7 +6,7 @@
     justify-items: center; /* centrer kortene i grid */
 }
 
-.note-card-container article {
+.note-card-container a {
     background-color: #7c3aedac; /* card background */
     color: white;
     padding: 1.5rem;              /* lidt mere plads inde i kortet */
@@ -22,12 +22,12 @@
     text-align: center;           /* centrer tekst */
 }
 
-.note-card-container article:hover {
+.note-card-container a:hover {
     background-color: #6832c5;
     transform: translateY(-2px);
 }
 
-.note-card-container article ul {
+.note-card-container a ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -36,7 +36,7 @@
     gap: 0.25rem;
 }
 
-.note-card-container article ul li:first-child {
+.note-card-container a ul li:first-child {
     font-weight: bold;
     font-size: 0.95rem;
     opacity: 0.9;

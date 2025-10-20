@@ -1,21 +1,14 @@
-export function navbar ()  {
+export function navbar() {
     const navBarDiv = document.getElementById("navbar");
 
-    const divLogo = document.createElement("div");
-    divLogo.className = "logo";
+    const logoLink = document.createElement("a"); // wrap logo in a link
+    logoLink.href = "/"; // path to home
+    logoLink.className = "logo"; // reuse the logo class for styling
+
     const logoImg = document.createElement("img");
     logoImg.src = "/images/ClassNotesLogo.png";
     logoImg.alt = "ClassNotes Logo";
 
-    const ul = document.createElement("ul");
-    ul.className = "nav-links";
-    const liHome = document.createElement("li");
-    liHome.textContent = "Home"
-    const liAllNotes = document.createElement("li");
-    liAllNotes.textContent = "All notes"
-    
-
-    divLogo.append(logoImg);
-    ul.append(liHome, liAllNotes);
-    navBarDiv.append(divLogo, ul);
+    logoLink.appendChild(logoImg);
+    navBarDiv.appendChild(logoLink);
 }
