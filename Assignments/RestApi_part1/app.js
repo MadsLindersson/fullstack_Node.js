@@ -17,14 +17,13 @@ app.get("/greekGods/:id", (req, res) => {
     } else {
         res.send({ data: greekGodToSend });
     };
-})
+});
 
 app.post("/greekGods", (req, res) => {
     if (!req.body)  {
         return res.status(400).send({ errorMessage: "Requires a JSON body" });
     };
     res.send(createGreekGod(req.body));
-    
 });
 
 app.put("/greekGods/:id", (req, res) => {

@@ -12,6 +12,7 @@ const indexPage = fs.readFileSync(
   path.join(__dirname, '../public/pages/index/index.html'),
   'utf-8'
 );
+
 const notePage = fs.readFileSync(
   path.join(__dirname, '../public/pages/notePage/notePage.html'),
   'utf-8'
@@ -28,7 +29,6 @@ app.get("/", (req, res) => {
 app.get("/notes/:fileName", async (req, res) => {
     const filePath = path.join(__dirname, '../notes', `${req.params.fileName}.md`);
 
-
     try {
         const mdFile = await fs.promises.readFile(filePath, 'utf-8');
         const html = marked.parse(mdFile);
@@ -39,10 +39,10 @@ app.get("/notes/:fileName", async (req, res) => {
     }
 });
 
-export default app;
+/* export default app; */
 
 
-/* const PORT = 8080;
+const PORT = 8080;
 app.listen(PORT, () => {
     console.log("The server is running on port:", PORT);    
-}); */
+});
