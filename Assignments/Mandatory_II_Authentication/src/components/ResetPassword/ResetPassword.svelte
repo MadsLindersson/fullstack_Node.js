@@ -1,8 +1,22 @@
 <script>
+    import toastr from "toastr";
+    import "toastr/build/toastr.min.css";
+
     export let onShowLogin;
 
+    let email = "";
+
+    function resetMailSendNotification () {
+      if (!email.includes ("@") || !email.includes("."))  {
+        toastr.error("Is not an email adress, please enter a valid email adress", email);
+        
+      } else {
+        toastr.success(email, "A mail has been sent to:");
+      }
+    }
+
     function handleShowLogin ()  {
-        onShowLogin();
+      onShowLogin();
     }
 </script>
 
@@ -14,6 +28,7 @@
   <div class="mb-6">
     <label class="block text-white mb-1" for="email">Email</label>
     <input
+      bind:value={email} 
       id="email"
       type="email"
       name="email"
@@ -24,6 +39,7 @@
 
   <!-- Submit button -->
   <button
+    onclick={resetMailSendNotification}
     type="button"
     class="w-full bg-[#7e22ce] hover:bg-indigo-600 text-white font-semibold py-2 rounded-lg shadow-md transition cursor-pointer"
   >

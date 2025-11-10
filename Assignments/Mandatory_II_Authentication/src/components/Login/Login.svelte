@@ -12,6 +12,8 @@
       }
 </script>
 
+
+
 <h1 class="text-4xl font-bold text-center text-[#7e22ce] mb-6">Welcome Back</h1>
 <h3 class="text-center text-[#737373] mb-6">Sign in to your account</h3>
 
@@ -62,3 +64,4 @@
     >Create one!</button
   >
 </p>
+
