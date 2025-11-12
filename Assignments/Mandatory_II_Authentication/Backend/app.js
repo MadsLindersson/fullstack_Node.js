@@ -3,6 +3,15 @@ import 'dotenv/config';
 import express from 'express';
 const app = express();
 
+import cors from 'cors';
+app.use(cors());
+
+app.use(express.json());
+
+
+
+// Libraries
+//==================================================================================================
 import session from 'express-session';
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -37,6 +46,8 @@ const authLimiter = rateLimit({
 
 app.use('/auth/', authLimiter);
 
+// Endpoints
+//==================================================================================================
 import loginRoute from './routes/loginRoute.js';
 app.use(loginRoute);
 
@@ -44,6 +55,8 @@ app.get("/", (req, res) => {
     res.send({ data: "Welcome" });
 });
 
+// Port
+//==================================================================================================
 const PORT = 8080 || process.env.PORT;
 app.listen(PORT, () => {
     console.log("Server has startet on port", PORT);

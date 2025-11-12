@@ -1,23 +1,13 @@
 <script>
-    import toastr from "toastr";
-    import "toastr/build/toastr.min.css";
+    import { resetMailSendNotification } from "../../utilFrontend/toastr.js";
 
     export let onShowLogin;
 
     let email = "";
 
-    function resetMailSendNotification () {
-      if (!email.includes ("@") || !email.includes("."))  {
-        toastr.error("Is not an email adress, please enter a valid email adress", email);
-        
-      } else {
-        toastr.success(email, "A mail has been sent to:");
-      }
-    }
-
     function handleShowLogin ()  {
       onShowLogin();
-    }
+    } 
 </script>
 
 <h1 class="text-4xl font-bold text-center text-[#7e22ce] mb-6">Reset Password</h1>
@@ -39,7 +29,7 @@
 
   <!-- Submit button -->
   <button
-    onclick={resetMailSendNotification}
+    onclick={() => resetMailSendNotification(email)}
     type="button"
     class="w-full bg-[#7e22ce] hover:bg-indigo-600 text-white font-semibold py-2 rounded-lg shadow-md transition cursor-pointer"
   >

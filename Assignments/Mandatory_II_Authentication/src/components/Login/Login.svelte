@@ -1,8 +1,35 @@
 <script>
-    //Needs to call functions in App.svelte to change currentView variable.
-      export let onShowCreateAccount;
-      export let onShowresetPassword;
-  
+    let email = "";
+    let pw = "";
+
+    export let onShowCreateAccount;
+    export let onShowresetPassword;
+
+    //TODO: Der sker noget galt med responset der kommer tilbage. Virker ikke
+    async function handleLogin (event) {
+      event.preventDefault();
+        
+      try {
+        const res = await fetch("http://localhost:8080/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, pw })
+        });
+          
+        const data = res.json();
+
+        if (res.ok)  {
+          console.log("Login succesfull");
+        } else {
+          console.log("Login failed");       
+        }
+      } catch (error) {
+          console.log("Something went wrong", error);
+      }
+    }
+
       function handleShowCreateAccount () {
           onShowCreateAccount();
       }
@@ -12,16 +39,15 @@
       }
 </script>
 
-
-
 <h1 class="text-4xl font-bold text-center text-[#7e22ce] mb-6">Welcome Back</h1>
 <h3 class="text-center text-[#737373] mb-6">Sign in to your account</h3>
 
-<form action="#">
+<form onsubmit={handleLogin}>
   <!-- Email input -->
   <div class="mb-4">
     <label class="block text-white mb-1" for="email">Email</label>
     <input
+      bind:value={email}
       id="email"
       type="email"
       name="email"
@@ -34,6 +60,7 @@
   <div class="mb-6">
     <label class="block text-white mb-1" for="password">Password</label>
     <input
+      bind:value={pw}
       id="password"
       type="password"
       name="password"
@@ -44,7 +71,7 @@
 
   <!-- Submit button -->
   <button
-    type="button"
+    type="submit"
     class="w-full bg-[#7e22ce] hover:bg-indigo-600 text-white font-semibold py-2 rounded-lg shadow-md transition cursor-pointer"
   >
     Sign In
@@ -53,15 +80,16 @@
 
 <!-- Reset link -->
 <p class="text-center text-gray-600 text-sm mt-4">
-  Forgot your password? <button onclick={handleShowResetPassword} class="text-indigo-500 hover:underline cursor-pointer"
-    >Reset</button
+  Forgot your password? <button
+    onclick={handleShowResetPassword}
+    class="text-indigo-500 hover:underline cursor-pointer">Reset</button
   >
 </p>
 
 <!-- Create account link-->
 <p class="text-center text-gray-600 text-sm mt-4">
-  Don't have an account? <button onclick={handleShowCreateAccount} class="text-indigo-500 hover:underline cursor-pointer"
-    >Create one!</button
+  Don't have an account? <button
+    onclick={handleShowCreateAccount}
+    class="text-indigo-500 hover:underline cursor-pointer">Create one!</button
   >
 </p>
-

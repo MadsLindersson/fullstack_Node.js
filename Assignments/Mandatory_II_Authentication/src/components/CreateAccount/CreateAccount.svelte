@@ -18,6 +18,7 @@
       type="email"
       name="email"
       placeholder="you@example.com"
+      required
       class="text-white placeholder-[#737373] w-full px-4 py-2 border border-[#737373] rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition"
     />
   </div>
@@ -30,6 +31,7 @@
       type="password"
       name="password"
       placeholder="••••••••"
+      required
       class="text-white placeholder-[#737373] w-full px-4 py-2 border border-[#737373] rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition"
     />
   </div>
@@ -42,6 +44,7 @@
       type="password"
       name="confirmPassword"
       placeholder="••••••••"
+      required
       class="text-white placeholder-[#737373] w-full px-4 py-2 border border-[#737373] rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition"
     />
   </div>
