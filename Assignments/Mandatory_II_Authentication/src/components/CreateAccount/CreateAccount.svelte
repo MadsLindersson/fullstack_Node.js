@@ -1,12 +1,14 @@
 <script>
-    export let onShowLogin;
+  import { navigate } from "svelte-routing";
 
-    function handleShowLogin ()  {
-        onShowLogin();
-    }
+  function handleShowLogin() {
+    navigate("/");
+  }
 </script>
 
-<h1 class="text-4xl font-bold text-center text-[#7e22ce] mb-6">Create Account</h1>
+<h1 class="text-4xl font-bold text-center text-[#7e22ce] mb-6">
+  Create Account
+</h1>
 <h3 class="text-center text-[#737373] mb-6">Sign up for a new account</h3>
 
 <form action="#">
@@ -38,7 +40,9 @@
 
   <!-- Confirm Password input -->
   <div class="mb-6">
-    <label class="block text-white mb-1" for="confirmPassword">Confirm Password</label>
+    <label class="block text-white mb-1" for="confirmPassword"
+      >Confirm Password</label
+    >
     <input
       id="confirmPassword"
       type="password"
@@ -60,8 +64,11 @@
 
 <!-- Back to login link -->
 <p class="text-center text-gray-600 text-sm mt-4">
-  Already have an account? 
-  <button onclick={handleShowLogin} class="text-indigo-500 hover:underline cursor-pointer">
+  Already have an account?
+  <button
+    onclick={handleShowLogin}
+    class="text-indigo-500 hover:underline cursor-pointer"
+  >
     Login
   </button>
 </p>

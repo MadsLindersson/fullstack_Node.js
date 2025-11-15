@@ -4,13 +4,18 @@ const router = Router();
 import hashing from '../utilBackend/hashing.js';
 
 async function login (req, res, next)   {
-    const { email, password } = req.body;
+    const { email, pw } = req.body;
 
     // TODO: Skal tjekkes mod en DB 
-    if (email === "mads@admin.com" && await hashing.comparePasswords(password)) {
-        next();
-    } else {
-        res.status(401).send({ data: "Login information is incorrect, please try again" });
+    try {
+        if (email === "mads@admin.com" && await hashing.comparePasswords(pw)) {
+            return next();
+        } else {
+            res.status(401).send({ data: "Login information is incorrect, please try again" });
+        }
+    } catch (error) {
+        console.log("Login error:", error);
+        return res.status(500).send({ data: "Internal server error" });
     }
 }
 

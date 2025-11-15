@@ -1,24 +1,27 @@
 <script>
-    import { resetMailSendNotification } from "../../utilFrontend/toastr.js";
+  import { navigate } from "svelte-routing";
+  import { resetMailSendNotification } from "../../utilFrontend/toastr.js";
 
-    export let onShowLogin;
+  let email = "";
 
-    let email = "";
-
-    function handleShowLogin ()  {
-      onShowLogin();
-    } 
+  function handleShowLogin() {
+    navigate("/");
+  }
 </script>
 
-<h1 class="text-4xl font-bold text-center text-[#7e22ce] mb-6">Reset Password</h1>
-<h3 class="text-center text-[#737373] mb-6">Enter your email to reset your password</h3>
+<h1 class="text-4xl font-bold text-center text-[#7e22ce] mb-6">
+  Reset Password
+</h1>
+<h3 class="text-center text-[#737373] mb-6">
+  Enter your email to reset your password
+</h3>
 
 <form action="#">
   <!-- Email input -->
   <div class="mb-6">
     <label class="block text-white mb-1" for="email">Email</label>
     <input
-      bind:value={email} 
+      bind:value={email}
       id="email"
       type="email"
       name="email"
@@ -39,8 +42,11 @@
 
 <!-- Back to login link -->
 <p class="text-center text-gray-600 text-sm mt-4">
-  Remember your password? 
-  <button onclick={handleShowLogin} class="text-indigo-500 hover:underline cursor-pointer">
+  Remember your password?
+  <button
+    onclick={handleShowLogin}
+    class="text-indigo-500 hover:underline cursor-pointer"
+  >
     Login
   </button>
 </p>

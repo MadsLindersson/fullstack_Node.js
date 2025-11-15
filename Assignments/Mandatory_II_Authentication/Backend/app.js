@@ -8,8 +8,6 @@ app.use(cors());
 
 app.use(express.json());
 
-
-
 // Libraries
 //==================================================================================================
 import session from 'express-session';
