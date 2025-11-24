@@ -1,27 +1,30 @@
   <script>
     import { navigate } from "svelte-routing";
+    import { signInNotification } from "../../utilFrontend/toastr.js";
 
       let email = "";
-      let pw = "";
+      let password = "";
 
-      async function handleLogin (event) {
+      async function handleSignIn (event) {
         event.preventDefault();
           
         try {
-          const res = await fetch("http://localhost:8080/login", {
+          const res = await fetch("http://localhost:8080/signIn", {
             method: "POST",
+            credentials: "include",
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify({ email, pw })
+            body: JSON.stringify({ email, password })
           });
             
           const data = await res.json();
 
           if (res.ok)  {
-            console.log("Login succesfull");
+            signInNotification(true);
+            navigate("/mainPage")
           } else {
-            console.log("Login failed");       
+            signInNotification(false);      
           }
         } catch (error) {
             console.log("Something went wrong", error);
@@ -40,7 +43,7 @@
   <h1 class="text-4xl font-bold text-center text-[#7e22ce] mb-6">Welcome Back</h1>
   <h3 class="text-center text-[#737373] mb-6">Sign in to your account</h3>
 
-  <form onsubmit={handleLogin}>
+  <form onsubmit={handleSignIn}>
     <!-- Email input -->
     <div class="mb-4">
       <label class="block text-white mb-1" for="email">Email</label>
@@ -58,7 +61,7 @@
     <div class="mb-6">
       <label class="block text-white mb-1" for="password">Password</label>
       <input
-        bind:value={pw}
+        bind:value={password}
         id="password"
         type="password"
         name="password"

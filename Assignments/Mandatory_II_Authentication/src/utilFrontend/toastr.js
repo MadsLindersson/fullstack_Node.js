@@ -11,3 +11,19 @@ export function resetMailSendNotification(email) {
     toastr.success(email, "A mail has been sent to:");
   }
 }
+
+export function signOutNotification (hasSignedOut)  {
+  if (hasSignedOut) {
+    toastr.success("Signed out");
+  } else {
+    toastr.error("Sign out failed");
+  }
+}
+
+export function signInNotification (hasSignedIn)  {
+    if (hasSignedIn) {
+    toastr.success("Signed in");
+  } else {
+    toastr.error("Sign in failed");
+  }
+}

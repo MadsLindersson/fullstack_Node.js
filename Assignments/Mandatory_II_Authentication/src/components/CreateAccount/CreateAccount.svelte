@@ -1,7 +1,7 @@
 <script>
   import { navigate } from "svelte-routing";
 
-  function handleShowLogin() {
+  function handleShowSignIn() {
     navigate("/");
   }
 </script>
@@ -62,13 +62,13 @@
   </button>
 </form>
 
-<!-- Back to login link -->
+<!-- Back to signIn link -->
 <p class="text-center text-gray-600 text-sm mt-4">
   Already have an account?
   <button
-    onclick={handleShowLogin}
+    onclick={handleShowSignIn}
     class="text-indigo-500 hover:underline cursor-pointer"
   >
-    Login
+    Sign In
   </button>
 </p>
