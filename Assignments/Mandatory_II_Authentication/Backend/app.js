@@ -9,16 +9,14 @@ app.use(cors({
   credentials: true
 }));
 
-
 app.use(express.json());
 
-// Libraries
-//==================================================================================================
+// Middleware ==================================================================================================
 import session from 'express-session';
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: { secure: false }
 }))
 
@@ -53,8 +51,8 @@ app.use('/auth/', authLimiter);
 import authenticationRoute from './routes/authenticationRoute.js';
 app.use(authenticationRoute);
 
-  import mainPageRoute from './routes/mainPageRoute.js';
-  app.use(mainPageRoute);
+import mainPageRoute from './routes/mainPageRoute.js';
+app.use(mainPageRoute);
 
 // Port
 //==================================================================================================

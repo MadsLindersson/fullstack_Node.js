@@ -22,8 +22,20 @@ export function signOutNotification (hasSignedOut)  {
 
 export function signInNotification (hasSignedIn)  {
     if (hasSignedIn) {
-    toastr.success("Signed in");
+      toastr.success("Signed in");
   } else {
-    toastr.error("Sign in failed");
+      toastr.error("Sign in failed");
   }
+}
+
+export function accountCreated (hasCreated)  {
+    if (hasCreated) {
+      toastr.success("Account created!");
+  } else {
+      toastr.error("Account creation failed");
+  }
+}
+
+export function pwNotAMatch ()  {
+  toastr.error("Passwords do not match!");
 }

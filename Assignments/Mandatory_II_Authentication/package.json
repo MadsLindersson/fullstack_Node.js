@@ -24,6 +24,7 @@
     "express-rate-limit": "^8.2.1",
     "express-session": "^1.18.2",
     "helmet": "^8.1.0",
+    "resend": "^6.5.2",
     "svelte-routing": "^2.13.0",
     "toastr": "^2.1.4"
   }

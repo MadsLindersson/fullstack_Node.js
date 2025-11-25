@@ -5,6 +5,9 @@ import hashing from '../utilBackend/hashing.js';
 
 import db from '../database/connection.js';
 
+import { sendEmail } from "../utilBackend/resend.js";
+
+// Middleware ====================================================================================
 async function signIn (req, res, next)   {
     const { email, password } = req.body;
 
@@ -23,7 +26,9 @@ async function signIn (req, res, next)   {
     }
 }
 
-router.post("/signIn", signIn, (req, res) => {    
+// Endpoints =====================================================================================
+
+router.post("/auth/signIn", signIn, (req, res) => {    
     res.send({ sessionID: req.sessionID });
 });
 
@@ -31,7 +36,18 @@ router.post("/createAccount", async (req, res) => {
     const {email, password} = req.body;
     const hashedPassword = await hashing.hashPassword(password);
 
-    db.run('INSERT INTO users (email, password) VALUES (?, ?)', [email, hashedPassword]);
+    // This is not stopping the server from crashing when entering an email adress already existing in the db.
+    try {
+        db.run('INSERT INTO users (email, password) VALUES (?, ?)', [email, hashedPassword]);
+
+            await sendEmail(
+            email,
+            "Welcome to authManII!",
+            `<h1>Welcome!</h1><p>Your account has been created.</p>`
+        );
+    } catch (error)  {
+        return res.status(500).send({ data: "Something went wrong", error })
+    }
 
     return res.status(201).send({ data: "Account has been created" });
 });

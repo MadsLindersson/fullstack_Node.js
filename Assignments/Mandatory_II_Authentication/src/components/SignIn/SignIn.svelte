@@ -9,7 +9,7 @@
         event.preventDefault();
           
         try {
-          const res = await fetch("http://localhost:8080/signIn", {
+          const res = await fetch("http://localhost:8080/auth/signIn", {
             method: "POST",
             credentials: "include",
             headers: {
@@ -22,7 +22,7 @@
 
           if (res.ok)  {
             signInNotification(true);
-            navigate("/mainPage")
+            navigate("/mainPage");
           } else {
             signInNotification(false);      
           }

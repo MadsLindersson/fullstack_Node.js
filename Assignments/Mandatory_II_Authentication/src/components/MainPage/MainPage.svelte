@@ -39,7 +39,7 @@
     if (res.ok) {
         return data.email;
     } else {
-        return "Seems you have tried to enter without loggin in, you silly goose";
+        navigate("/");
     }
   }
 
